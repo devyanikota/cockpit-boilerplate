@@ -1,0 +1,34 @@
+version: '2'
+services:
+    nodejs:
+        build: nodejs/
+        image: evol262/nodejs:latest
+        command: /bin/true
+    cockpit:
+        build: cockpit/
+        image: evol262/cockpit:latest
+        links:
+            - nodejs
+            - hacking
+        build: cockpit/
+        ports: 
+             - "9091:9090"
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+            - local-share:/home/development/.local/share:z
+            - ./sources:/home/development/sources:z
+        tmpfs:
+            - /tmp
+            - /run
+        cap_add:
+            - SYS_ADMIN
+    hacking:
+        build: hacking/
+        image: evol262/cockpit-hacking:latest
+        links:
+            - nodejs
+        volumes:
+            - ./sources:/home/development/sources:z
+            - local-share:/home/development/.local/share:z
+volumes:
+    local-share:
