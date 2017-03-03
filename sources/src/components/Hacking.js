@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
+import { Timer } from './Timer'
+
 export default class Hacking extends Component {
   constructor(props) {
     super(props)
@@ -16,9 +18,9 @@ export default class Hacking extends Component {
         <h2>
           Hacking
         </h2>
-        <div>
-          Hello world!!
-        </div>
+        <Timer />
+        <LoremBox name="ipsum"/>
+        <FileLister />
      </div>
     )
   }
