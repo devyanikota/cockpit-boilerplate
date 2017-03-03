@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { VirtualMachines, NetworkInterfaces, NodeStatus,
-  SshHostKey, CheckIfNode } from '../helpers/Hacking'
-var classNames = require('classnames')
 
 export default class Hacking extends Component {
   constructor(props) {
