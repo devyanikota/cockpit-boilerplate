@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Ls } from '../helpers/Ls'
+import { HorizontalElement } from './patternfly/Form'
 
 export class FileLister extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export class FileLister extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.toggleChecked = this.toggleChecked.bind(this)
+    this.onUpdate = this.onUpdate.bind(this)
   }
   handleChange(e) {
     this.setState({path: e.target.value})
@@ -18,11 +19,8 @@ export class FileLister extends Component {
   handleSubmit(e) {
     e.preventDefault()
   }
-  toggleChecked(e) {
-    let value = e.target.type === 'checkbox' ?
-      e.target.checked : e.target.value;
-    console.log(value)
-    this.setState({checked: value})
+  onUpdate(data) {
+    this.setState(data)
   }
   render() {
     return (
@@ -46,24 +44,42 @@ export class FileLister extends Component {
                 />
             </div>
           </div>
-          <div className="form-group">
-            <label className="col-sm-1 control-label"
-              htmlFor="checkbox">
-              ls -l:
-            </label>
-            <div className="col-sm-10">
-              <input className="bootstrap-switch"
-                type="checkbox"
-                onChange={this.toggleChecked}
-              />
-            </div>
-          </div>
+          <Switch
+            onUpdate={this.onUpdate}
+          />
         </form>
         <ListDir
           path={this.state.path}
           full={this.state.checked}
         />
       </div>
+    )
+  }
+}
+
+class Switch extends Component {
+  constructor(props) {
+    super(props)
+    this.toggleChecked = this.toggleChecked.bind(this)
+  }
+  toggleChecked(e) {
+    let value = e.target.type === 'checkbox' ?
+      e.target.checked : e.target.value;
+    console.log(value)
+    this.props.onUpdate({checked: value})
+  }
+  render() {
+    return (
+      <HorizontalElement
+        htmlFor="checkbox"
+        labelText="ls -l:"
+        inner={
+          <input className="bootstrap-switch"
+            type="checkbox"
+            onChange={this.toggleChecked}
+          />
+        }
+      />
     )
   }
 }
