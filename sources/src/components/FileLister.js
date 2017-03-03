@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Ls } from '../helpers/Ls'
-import { HorizontalElement } from './patternfly/Form'
+import { Horizontal, HorizontalElement } from './patternfly/Form'
 
 export class FileLister extends Component {
   constructor(props) {
@@ -9,15 +9,7 @@ export class FileLister extends Component {
       path:"/live_data",
       checked: false
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
     this.onUpdate = this.onUpdate.bind(this)
-  }
-  handleChange(e) {
-    this.setState({path: e.target.value})
-  }
-  handleSubmit(e) {
-    e.preventDefault()
   }
   onUpdate(data) {
     this.setState(data)
@@ -28,31 +20,51 @@ export class FileLister extends Component {
         <h3>
           File listing
         </h3>
-        <form className="form-horizontal">
-          <div className="form-group">
-            <label className="col-sm-1 control-label"
-              htmlFor="textInput-markup">
-              Path to list:
-            </label>
-            <div className="col-sm-10">
-              <input type="text"
-                id="textInput-markup"
-                className="form-control"
-                value={this.state.path}
-                checked={this.state.checked}
-                onChange={this.handleChange}
-                />
-            </div>
-          </div>
+        <Horizontal>
+          <InputBox
+            path={this.state.path}
+            onUpdate={this.onUpdate}
+          />
           <Switch
             onUpdate={this.onUpdate}
           />
-        </form>
+        </Horizontal>
         <ListDir
           path={this.state.path}
           full={this.state.checked}
         />
       </div>
+    )
+  }
+}
+
+class InputBox extends Component {
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleChange(e) {
+    this.props.onUpdate({path: e.target.value})
+  }
+  handleSubmit(e) {
+    e.preventDefault()
+  }
+  render() {
+    return (
+      <HorizontalElement
+        htmlFor="inputBox"
+        labelText="Path to list:"
+        inner={
+          <input type="text"
+            id="textInput-markup"
+            className="form-control"
+            value={this.props.path}
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            />
+        }
+      />
     )
   }
 }

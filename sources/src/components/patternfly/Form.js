@@ -1,5 +1,18 @@
 import React, { Component } from 'react'
 
+export class Horizontal extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <div className="form-horizontal">
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
 export class HorizontalElement extends Component {
   constructor(props) {
     super(props)
