@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { VirtualMachines, NetworkInterfaces, NodeStatus,
-  SshHostKey, CheckIfNode } from '../helpers/Hacking'
-var classNames = require('classnames')
+
+import { LoremBox } from './LoremBox'
+import { FileLister } from './FileLister'
+import { Timer } from './Timer'
 
 export default class Hacking extends Component {
   constructor(props) {
@@ -19,9 +20,12 @@ export default class Hacking extends Component {
         <h2>
           Hacking
         </h2>
-        <div>
-          Hello world!!
-        </div>
+        <span>
+            Hello world!!
+        </span>
+        <Timer />
+        <LoremBox name="ipsum"/>
+        <FileLister />
      </div>
     )
   }

@@ -16,6 +16,7 @@ services:
         volumes:
             - /sys/fs/cgroup:/sys/fs/cgroup:ro
             - local-share:/home/development/.local/share:z
+            - ./live_data:/live_data:z
             - ./sources:/home/development/sources:z
         tmpfs:
             - /tmp
