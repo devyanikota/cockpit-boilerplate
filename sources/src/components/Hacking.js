@@ -19,8 +19,6 @@ export default class Hacking extends Component {
           Hacking
         </h2>
         <Timer />
-        <LoremBox name="ipsum"/>
-        <FileLister />
      </div>
     )
   }
