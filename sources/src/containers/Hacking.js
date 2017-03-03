@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { Timer } from '../components/Timer'
 import { HostName } from '../components/Hostname'
+import { Interactive } from '../components/Channel'
 
 export default class Hacking extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ export default class Hacking extends Component {
             </div>
           </div>
         </div>
+        <Interactive />
      </div>
     )
   }
