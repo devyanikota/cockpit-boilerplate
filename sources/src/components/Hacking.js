@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import { LoremBox } from './LoremBox'
+import { FileLister } from './FileLister'
 import { Timer } from './Timer'
 
 export default class Hacking extends Component {
@@ -21,6 +22,7 @@ export default class Hacking extends Component {
         </h2>
         <Timer />
         <LoremBox name="ipsum"/>
+        <FileLister />
      </div>
     )
   }
