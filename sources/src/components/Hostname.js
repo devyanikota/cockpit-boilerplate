@@ -9,7 +9,6 @@ export class HostName extends Component {
     }
     this.onUpdate = this.onUpdate.bind(this)
     this.dbus = new Hostname()
-    this.dbus.getHostname(this.onUpdate)
   }
   componentDidMount() {
     var self = this
