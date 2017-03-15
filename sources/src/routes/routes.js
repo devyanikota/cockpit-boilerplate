@@ -1,7 +1,6 @@
 import React from 'react'
-import App from '../containers/App'
-import Hacking from '../containers/Hacking'
-import Files from '../containers/Files'
+import App from '../components/App'
+import Hacking from '../components/Hacking'
 
 let root = {
   path: '/',
@@ -19,12 +18,6 @@ export let paths = {
     component: Hacking,
     indexRoute: true
   },
-  "Files": {
-    path: "/files",
-    icon: "pficon-repository",
-    component: Files,
-    indexRoute: false
-  }
 }
 
 function generateRoutes() {
