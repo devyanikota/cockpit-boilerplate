@@ -2,6 +2,7 @@ import React from 'react'
 import App from '../containers/App'
 import Hacking from '../containers/Hacking'
 import Files from '../containers/Files'
+import Gplugin from '../containers/Gplugin'
 
 let root = {
   path: '/',
@@ -24,6 +25,12 @@ export let paths = {
     icon: "pficon-repository",
     component: Files,
     indexRoute: false
+  },
+  "Gplugin": {
+    path: "/gplugin",
+    icon: "fa-archive",
+    component: Gplugin,
+    indexRoute: true
   }
 }
 
