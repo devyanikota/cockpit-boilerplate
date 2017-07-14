@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import { Timer } from '../components/Timer'
-import { HostName } from '../components/Hostname'
 
 export default class Hacking extends Component {
   constructor(props) {
@@ -23,9 +22,6 @@ export default class Hacking extends Component {
           <div className="row">
             <div className="col-md-6">
               <Timer />
-            </div>
-            <div className="col-md-6">
-              <HostName />
             </div>
           </div>
         </div>
