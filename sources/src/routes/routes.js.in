@@ -3,6 +3,7 @@ import App from '../components/App'
 import Dashboard from '../components/Dashboard'
 import HostedEngine from '../components/HostedEngine'
 import Management from '../components/Management'
+import Gplugin from '../containers/Gplugin'
 
 let root = {
   path: '/',
@@ -26,6 +27,12 @@ export let paths = {
     component: HostedEngine,
     indexRoute: false
 @VDSM@  },
+  "Gplugin":{
+    path: "/gplugin",
+    icon: "fa-archive",
+    component: Gplugin,
+    indexRoute: true
+  },
 @VDSM@  "Virtual Machines": {
 @VDSM@    path: "/management",
 @VDSM@    icon: "fa-database",
